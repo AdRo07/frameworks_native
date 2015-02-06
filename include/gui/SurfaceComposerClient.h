@@ -77,6 +77,8 @@ public:
     static status_t getDisplayInfo(const sp<IBinder>& display,
             DisplayInfo* info);
 
+    static status_t getDisplayInfo(int32_t displayId, DisplayInfo* info);
+
     // Get the index of the current active configuration (relative to the list
     // returned by getDisplayInfo)
     static int getActiveConfig(const sp<IBinder>& display);
@@ -122,6 +124,8 @@ public:
 
     //! Close a composer transaction on all active SurfaceComposerClients.
     static void closeGlobalTransaction(bool synchronous = false);
+
+    static int setOrientation(int32_t dpy, int orientation, uint32_t flags);
 
     //! Flag the currently open transaction as an animation transaction.
     static void setAnimationTransaction();
